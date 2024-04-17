@@ -1,5 +1,3 @@
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
 import { Sora } from "next/font/google";
 import "./globals.css";
 
@@ -16,9 +14,8 @@ export default function RootLayout({ children }) {
 			<body
 				className={`dark:bg-body bg-white ${sora.className} dark:text-white text-dark`}
 			>
-				<Header />
-				<main>{children}</main>
-				<Footer />
+				{children}
+
 				<div id="movie-modal-content" />
 			</body>
 		</html>

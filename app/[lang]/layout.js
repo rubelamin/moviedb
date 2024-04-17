@@ -1,3 +1,5 @@
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 import Sidebar from "@/components/Sidebar";
 import { getDictionary } from "./dictionaries";
 
@@ -7,11 +9,15 @@ export default async function Home({ children, modal, params: { lang } }) {
 	return (
 		<>
 			{modal}
-			<div className="container grid lg:grid-cols-[218px_1fr] gap-[3.5rem]">
-				<Sidebar dictionary={dict} />
+			<Header lang={lang} />
+			<main>
+				<div className="container grid lg:grid-cols-[218px_1fr] gap-[3.5rem]">
+					<Sidebar dictionary={dict} />
 
-				{children}
-			</div>
+					{children}
+				</div>
+			</main>
+			<Footer />
 		</>
 	);
 }

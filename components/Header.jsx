@@ -2,11 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import LanguageSwitcher from "./ui/LanguageSwitcher";
 
-export default function Header() {
+export default function Header({ lang }) {
+	const langs = lang || "en";
 	return (
 		<header>
 			<nav className="container flex items-center justify-between space-x-10 py-6">
-				<Link href="/">
+				<Link href={`/${langs}`}>
 					<Image
 						src="/assets/logo.svg"
 						width="139"

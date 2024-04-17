@@ -9,8 +9,6 @@ const LanguageSwitcher = () => {
 	const router = useRouter();
 	const pathname = usePathname();
 
-	console.log(pathname);
-
 	const languages = [
 		{
 			code: "en",
@@ -58,7 +56,7 @@ const LanguageSwitcher = () => {
 					{selectedLanguage.language}
 				</button>
 				{showManu && (
-					<div className="absolute right-0 top-full mt-2 w-40 rounded-md bg-slate-700 p-2 z-10 shadow-lg">
+					<ul className="absolute right-0 top-full mt-2 w-40 rounded-md bg-slate-700 p-2 z-10 shadow-lg">
 						{languages.map((entry) => (
 							<li
 								key={entry.code}
@@ -77,7 +75,7 @@ const LanguageSwitcher = () => {
 								{entry.language}
 							</li>
 						))}
-					</div>
+					</ul>
 				)}
 			</div>
 		</div>

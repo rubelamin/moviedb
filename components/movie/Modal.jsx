@@ -5,7 +5,6 @@ import { useCallback, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 
 export default function Modal({ children }) {
-	console.log("is modal showing?");
 	const modalOverly = useRef(null);
 	const modalWrapper = useRef(null);
 	const router = useRouter();
@@ -14,7 +13,7 @@ export default function Modal({ children }) {
 		router.back();
 	}, [router]);
 
-	const onClick = useCallback(() => {
+	const onClick = useCallback(
 		(e) => {
 			if (
 				e.target === modalOverly.current ||
@@ -22,14 +21,21 @@ export default function Modal({ children }) {
 			) {
 				if (onDisMiss) onDisMiss();
 			}
-		};
-	}, [onDisMiss, modalOverly, modalWrapper]);
+		},
+		[onDisMiss, modalOverly, modalWrapper]
+	);
 
-	const onKeyDown = useCallback(() => {
+	const onKeyDown = useCallback(
 		(e) => {
-			if (e.key === "Escape") onDisMiss();
-		};
-	}, [onDisMiss]);
+			console.log(e.key);
+			if (e.key === "Escape") {
+				onDisMiss();
+			} else if (e.key === "ArrowLeft") {
+				onDisMiss();
+			}
+		},
+		[onDisMiss]
+	);
 
 	useEffect(() => {
 		document.addEventListener("keydown", onKeyDown);
@@ -41,7 +47,7 @@ export default function Modal({ children }) {
 		<div
 			ref={modalOverly}
 			onClick={onClick}
-			className="fixed bg-black bg-opacity-70 inset-0 z-50 h-full overflow-y-auto min-h-screen"
+			className="absolute bg-black bg-opacity-70 inset-0 z-50 h-full overflow-y-auto min-h-screen"
 		>
 			<section
 				ref={modalWrapper}

@@ -47,7 +47,7 @@ export default function Modal({ children }) {
 		<div
 			ref={modalOverly}
 			onClick={onClick}
-			className="absolute bg-black bg-opacity-70 inset-0 z-50 h-full overflow-y-auto min-h-screen"
+			className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-70 z-50 flex justify-center items-center overflow-y-auto"
 		>
 			<section
 				ref={modalWrapper}

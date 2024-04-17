@@ -61,10 +61,10 @@ export default async function MovieDetails({ movieId, language }) {
 						</div>
 						<div className="col-span-2 space-y-4">
 							<button className="py-2 w-full bg-primary font-medium text-slate-800 rounded-md">
-								Stream In HD
+								{dictionary?.streamHD}
 							</button>
 							<button className="py-2 w-full bg-primary font-medium text-slate-800 rounded-md">
-								Download In HD
+								{dictionary?.downloadHD}
 							</button>
 						</div>
 					</div>
